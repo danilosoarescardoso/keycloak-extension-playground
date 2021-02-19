@@ -1,0 +1,333 @@
+{
+	"info": {
+		"_postman_id": "461415bb-12fd-4a03-bbdb-27707a4ee2e8",
+		"name": "poc-rhsso",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getAccountData",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJNRmtJdk5KNFdiSlB2anRJMjlQMk5SWThHOXhvSlJpdHc5czBrZGVTWk9jIn0.eyJqdGkiOiI3NTBhNGU2My03ZjAzLTRiYWEtOTAxNy1mMzdhMjkyMTg4N2EiLCJleHAiOjE2MTEzNDYyODAsIm5iZiI6MCwiaWF0IjoxNjExMzQ2MjIwLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXV0aC9yZWFsbXMvbWFzdGVyIiwic3ViIjoiYTM4Nzg5OGYtMWRiNC00YjA3LWJkOGMtZGY5OGEwNjJjNDcxIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaXRhdS1jbGllbnQiLCJhdXRoX3RpbWUiOjE2MTEzNDYyMTgsInNlc3Npb25fc3RhdGUiOiI1YmNhODQwYS0wYTU1LTQ2MDEtYTIxNC0yN2RlMGM4MDVlY2IiLCJhY3IiOiIxIiwic2NvcGUiOiJiYW5rLWFjY291bnQifQ.mWnz87qwcVcqL4IptWKxxkKdHDxEcbz77QeVogmmh15fIo4-4WtGQU0u04x7lgWNgIt34MqaAG42dYwSkWG5p_mgBxS_3GbPfKnTU-cB2s0DswIfunsTAYuVagsAuDAWYmAIvYHVYYgMyBKvpXXdYrHNOt9IFHogtBOJLiyGPOqsclXcgwWouKdmdFK8k6dlmagtey2ZrCFNR3FTLq5md2QkRG7pxlDgfi39f4VO7GPWGHmG6gHUClCg0ULSfKi8stey-LUnu_pCmUYsH5n27BjUQMPrXTp63JfvnPn5dFyXMeTUMMi0GBFWQyT84iyQgnHK1NXYxkbfDGwkvY0MXw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/bank-account",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"bank-account"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAccessToken",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "authUrl",
+							"value": "http://localhost:8080/auth/realms/master/protocol/openid-connect/auth",
+							"type": "string"
+						},
+						{
+							"key": "useBrowser",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "terceiro-client",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "danilo",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Tocdmo@01",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "0b9a73f0-d041-4f3c-a475-6aceb274024d",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "openid",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJNRmtJdk5KNFdiSlB2anRJMjlQMk5SWThHOXhvSlJpdHc5czBrZGVTWk9jIn0.eyJqdGkiOiI0NjM5Nzk3Yi00ODYzLTRkZDgtYTIzYi02YTZjOTIzYzQ3ZjUiLCJleHAiOjE2MTEzNDIwMDUsIm5iZiI6MCwiaWF0IjoxNjExMzQxOTQ1LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXV0aC9yZWFsbXMvbWFzdGVyIiwic3ViIjoiYTM4Nzg5OGYtMWRiNC00YjA3LWJkOGMtZGY5OGEwNjJjNDcxIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaXRhdS1jbGllbnQiLCJhdXRoX3RpbWUiOjE2MTEzNDE5MjcsInNlc3Npb25fc3RhdGUiOiI0Yzg2ODkzNC05YWQ2LTRkNTgtOGZiOS1iMmUwY2E4ZjE2NjciLCJhY3IiOiIxIiwic2NvcGUiOiJiYW5rLWFjY291bnQifQ.LFfRhsNWmS3mJbjBA0Vtq0EVn7dAYEymXKzUyxVHMdFhlCEjP2_xqf_UiNUTy9UDtAqEfO8dCJ8NatmTHEsDUJtyBVZ0Lk1XnTEW80OKOiSbAJRwKGrBX5Smi-TkI6zV7JtqU2C4QR6LkYX2hCrbY6F3qDWQRla5O8NNayjUvjZQKEZnueaponVNKYk6Kq3eWU4t0iD2zUj4zUk_aPcB_jPGQM_wW5I1pUR5s7CSw-ZBthP3PyuMpc9l8ggojYdDOZrnLvE07Sk22bwDJ9lZGrUdJZwziOIH7Uqbh8lVRHmZ_rFw2TEloq9Zw6C-WCZBDsHjhr0pCEGs6rL8WUTh-w",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8000/accesstoken/generate",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "1cd4f2b1-6051-4462-b864-a1f901dbe560.009e72a9-a81a-462e-8ce3-31e3c6325a22.3842f1f9-b502-41cb-a9f1-137b43d8a050",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "username",
+							"value": "danilo",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Tocdmo@01",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8081/auth/realms/master/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"auth",
+						"realms",
+						"master",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "revokeConsent",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "scope",
+							"value": "openid bank-account loans cpf",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "340c0850-1770-4af4-bd8a-918439100116",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "tokenType",
+							"value": "bearer",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJMOVQ1d1JOYnJEbjFLYWlsZTJkZW9QRmVwOExXR2lwSXBwaFZmYmhoYWxNIn0.eyJqdGkiOiI1YjIyNzhiNC0xNDczLTQ5NWEtYTAwMy0wMjVjZTg5ZWY3ZjAiLCJleHAiOjE2MTE5MzU5OTIsIm5iZiI6MCwiaWF0IjoxNjExOTM1OTMyLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwODAvYXV0aC9yZWFsbXMvbWFzdGVyIiwic3ViIjoiMzk2MDVlYmMtYzc4ZC00M2YzLWEyNGUtNmM5ZTU2NWY4NzFiIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiaXRhdS1jbGllbnQiLCJhdXRoX3RpbWUiOjE2MTE5MzUyNjksInNlc3Npb25fc3RhdGUiOiI5NGZkNWYzYy1iYTE1LTQyMDMtOGZjOS04NjdiYTlkZGU3YzUiLCJhY3IiOiIwIiwic2NvcGUiOiIifQ.qAi3vQz836mfE1uKRsLlkM2FsPcwAf8QfNZF6hRg2rd0FIE7ZPOO_MXXNUkIPI0X7DuMKYziX-sWrL8v_qUUHsFOdWUBgppXoQbrjmGU7m7YghjZ0dIWTtHaitGhaF9KRwjo8rXnCW4KzaOHFF85mfOhdVcmJsbpkMqD8auL6TqA7tKhE9_ZMZxKQPFekBvoZNj_Vlh9abasWXyjZmOTO-AwqSBy6ujqjVo97RMkl9NaTyhdBZ8njEkZryjOZ6ymIpcJ0a4NbiSuJakWX90Akp30yD7fWqxghh7YY3n9EjZUFLJHMHTBtivc7ozX9EVuW26Hzrh9Bj5aBWKJ77MO3Q",
+							"type": "string"
+						},
+						{
+							"key": "state",
+							"value": "12345xyzx",
+							"type": "string"
+						},
+						{
+							"key": "headerPrefix",
+							"value": "Bearer",
+							"type": "string"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8000/accesstoken/generate",
+							"type": "string"
+						},
+						{
+							"key": "useBrowser",
+							"value": false,
+							"type": "boolean"
+						},
+						{
+							"key": "clientId",
+							"value": "itau-client",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "http://localhost:8080/auth/realms/master/protocol/openid-connect/token",
+							"type": "string"
+						},
+						{
+							"key": "authUrl",
+							"value": "http://localhost:8080/auth/realms/master/protocol/openid-connect/auth",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/auth/admin/realms/master/users/0d0691b8-1862-40c3-beb5-feae92af3835/consents",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"admin",
+						"realms",
+						"master",
+						"users",
+						"0d0691b8-1862-40c3-beb5-feae92af3835",
+						"consents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAuthorizationCode",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "clientid",
+							"value": "terceiro-client",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "username",
+							"value": "danilo",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Tocdmo@01",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "terceiro-client",
+							"type": "text"
+						},
+						{
+							"key": "response_type",
+							"value": "code",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "openid",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8000/generate",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8081/auth/realms/master/protocol/openid-connect/auth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"auth",
+						"realms",
+						"master",
+						"protocol",
+						"openid-connect",
+						"auth"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "terceiro-client",
+							"disabled": true
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost:8000",
+							"disabled": true
+						},
+						{
+							"key": "response_type",
+							"value": "code",
+							"disabled": true
+						},
+						{
+							"key": "clientid",
+							"value": "terceiro-client",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
