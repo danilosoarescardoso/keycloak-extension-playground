@@ -173,6 +173,12 @@
 
         <dependency>
             <groupId>${project.groupId}</groupId>
+            <artifactId>simple-auth-canal-bancario</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>${project.groupId}</groupId>
             <artifactId>simple-auth-form-extension</artifactId>
             <version>${project.version}</version>
         </dependency>
